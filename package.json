@@ -1,0 +1,29 @@
+{
+  "name": "out-of-the-maze",
+  "version": "1.0.0",
+  "description": "ITRex Group Node.js Lab | Test task #2",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kastrubait/Go-through-the-maze.git"
+  },
+  "author": "Tatsiana Kastrubai",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "maze-cli": "src/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/kastrubait/Go-through-the-maze/issues"
+  },
+  "homepage": "https://github.com/kastrubait/Go-through-the-maze#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0"
+  }
+}

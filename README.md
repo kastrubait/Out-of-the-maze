@@ -13,7 +13,6 @@ Example of input data:
 
 ``[
  ['#','#','#','#','#','#','#','#','#'],
- 
  ['#','+','+','+','#','+','+','+','#'],     
  ['#','+','#','+','#','+','#','+','#'],    
  ['+','+','#','+','0','+','#','+','#'],     
@@ -26,3 +25,15 @@ Example of input data:
 Example of answer: 
 
 ``['left', 'top','top','left','left','bottom','bottom','left']``
+
+#### Installation and Start
+> 1. Clone the repository
+    **git clone** https://github.com/kastrubait/Out-of-the-maze.git
+> 2. Go to the directory:
+    **cd out-of-the-maze**
+> 3. Install node_modules:
+   **npm i**
+
+   **npm link**
+> 4. Start:
+    **maze-cli** `[options]`
