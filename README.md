@@ -1,4 +1,4 @@
-# Go-through-the-maze
+# Out-of-the-maze
 **ITRex Group Node.js Lab | Test task #2**
 
 > *Write an algorithm for finding a way out of the maze. The maze is a 2-dimensional array in which:*
