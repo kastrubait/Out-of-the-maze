@@ -1,4 +1,4 @@
-# Go-through-the-maze
+# Out-of-the-maze
 **ITRex Group Node.js Lab | Test task #2**
 
 > *Write an algorithm for finding a way out of the maze. The maze is a 2-dimensional array in which:*
@@ -12,14 +12,14 @@
 Example of input data:
 
 ``[
- ['#','#','#','#','#','#','#','#','#'],
- ['#','+','+','+','#','+','+','+','#'],     
- ['#','+','#','+','#','+','#','+','#'],    
- ['+','+','#','+','0','+','#','+','#'],     
+ ['#','#','#','#','#','#','#','#','#'],   
+ ['#','+','+','+','#','+','+','+','#'],        
+ ['#','+','#','+','#','+','#','+','#'],       
+ ['+','+','#','+','0','+','#','+','#'],       
  ['#','#','#','+','#','#','#','#','#'],     
- ['#','#','+','+','#','#','#','#','#'],     
- ['#','#','+','#','#','#','#','#','#'],     
- ['#','#','#','#','#','#','#','#','#'],
+ ['#','#','+','+','#','#','#','#','#'],       
+ ['#','#','+','#','#','#','#','#','#'],       
+ ['#','#','#','#','#','#','#','#','#'],  
  ]``
 
 Example of answer: 
@@ -27,13 +27,17 @@ Example of answer:
 ``['left', 'top','top','left','left','bottom','bottom','left']``
 
 #### Installation and Start
-> 1. Clone the repository
+>1. Clone the repository
     **git clone** https://github.com/kastrubait/Out-of-the-maze.git
-> 2. Go to the directory:
+>2. Go to the directory:
     **cd out-of-the-maze**
-> 3. Install node_modules:
-   **npm i**
-
-   **npm link**
-> 4. Start:
+>3. Install node_modules:
+   **npm i**,  **npm link**
+>4. Start:
     **maze-cli** `[options]`
+>5. Options:
+    Each option can have a short flag (single character) and a long name. Options on the command line are not positional, and can be specified before or after other command arguments. You can view options using the command  **maze-cli  --help**
+
+       **-i, --input <string>**, input sets the path to the file, by default "input.txt"  
+       **-o, --output <string>**, output sets the path to the file, by default "output.txt"  
+       **-h, --help**, display help for command

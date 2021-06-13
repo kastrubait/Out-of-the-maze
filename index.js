@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+// const fs = require('fs');
 const path = require('path');
 const { program } = require('commander');
-const { pipeline } = require('stream');
-const Solution = require('./src/transform-stream');
+// const { pipeline } = require('stream');
+// const Solution = require('./src/transform-stream');
 // const { es } = require('event-stream');
+
+const { startMaze, outputMaze } = require('./src/getStartEnd');
+const { MAZE } = require('./src/input');
+const { prepareMaze, checkPath } = require('./src/checkPath');
 
 program
   .storeOptionsAsProperties(false)
@@ -18,22 +22,31 @@ const init = async ({ input, output }) => {
     const inputPath = input ? path.join('./', input) : null;
     const outputPath = output ? path.join('./', output) : null;
 
-    const myReadable = input
-      ? fs.createReadStream(inputPath)
-      : process.stdin;
-    
-    const myWriteble = output 
-      ? fs.createWriteStream(outputPath, { flags: 'a' })
-      : process.stdout;
-    
-    const transformer = new Solution();
+    console.log(inputPath, outputPath);
 
-    pipeline(myReadable, transformer, myWriteble, (err) => {
-      if (err) {
-        console.error(err.message);
-        process.exit(1);
-      }
-    });
+    // const myReadable = input
+    //   ? fs.createReadStream(inputPath)
+    //   : process.stdin;
+    
+    // const myWriteble = output 
+    //   ? fs.createWriteStream(outputPath, { flags: 'a' })
+    //   : process.stdout;
+    
+    // const transformer = new Solution();
+
+    // pipeline(myReadable, transformer, myWriteble, (err) => {
+    //   if (err) {
+    //     console.error(err.message);
+    //     process.exit(1);
+    //   }
+    // });
+
+    const start = startMaze(MAZE);
+    const end = outputMaze(MAZE);
+
+    end.step = 0;
+    prepareMaze(end);
+    checkPath(start);
 
   } catch (err) {
     console.error(err.message);
