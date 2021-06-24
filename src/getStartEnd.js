@@ -17,7 +17,7 @@ const outputMaze = (MAZE) => {
     outputMaze.x = MAZE[0].indexOf(endValue);
   }
   if (MAZE[MAZE.length-1].indexOf(endValue) !== -1 ) {
-    outputMaze.y =MAZE.length;
+    outputMaze.y =MAZE.length-1;
     outputMaze.x = MAZE[MAZE.length-1].indexOf(endValue);
   }
   for (let i = 0; i < MAZE.length; i++) {
@@ -27,9 +27,10 @@ const outputMaze = (MAZE) => {
     }
     if (MAZE[i][MAZE[0].length-1].indexOf(endValue) !== -1) {
       outputMaze.y = i;
-      outputMaze.x = MAZE[0].length;
+      outputMaze.x = MAZE[0].length-1;
     }
   }
+  console.log('end ->', outputMaze);
   return outputMaze;
 }
 
