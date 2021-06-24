@@ -5,24 +5,24 @@ const checkPath = (start) => {
 
   let solution = [];
   let current = start;
-  let siblings =  getValidSib(current).filter((crd) => crd.val !== '*');
+  let siblings = getValidSib(current);
 
-  console.log(' start ->', siblings, solution);
-  while (min(siblings).val !== 1) {
+  while (min(siblings).val > 1) {
     const next = min(siblings);
     
     const dx = current.x - next.x;
     const dy = current.y - next.y;
 
-    solution.push(getRoute({ dx, dy }));
-
-    MAZE[current.y][current.x] = '*';
+    solution.push(getRoute({ dy, dx }));
+   
+    siblings = getValidSib(next);
     current = next;
-    siblings =  getValidSib(current).filter((crd) => crd.val !== '*');
   }
-  const dx = current.x - siblings[0].x;
-  const dy = current.y - siblings[0].y;
-  solution.push(getRoute({ dx, dy }));
+  const finish = min(siblings);
+  const dx = current.x - finish.x;
+  const dy = current.y - finish.y;
+  solution.push(getRoute({ dy, dx }));
+  console.log(solution);
   return solution;
 }
 
@@ -41,8 +41,8 @@ const prepareMaze = (end) => {
     const newSiblings =  getValidSib(current).filter((crd) => crd.val === '+');
     siblings = siblings.concat(newSiblings);
   }
+// console.log(MAZE);
 }
-
 
 function getValidSib(cord) {
 
@@ -69,7 +69,7 @@ function min(siblings) {
   let minValue = siblings[0];
 
   for (let i = 1; i < siblings.length; i++) {
-    if (minValue.val > siblings[i].val) {
+    if (minValue.val > siblings[i].val && siblings[i].val !== 0) {
       minValue = siblings[i];
     }
   }
