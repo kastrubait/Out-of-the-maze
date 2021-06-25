@@ -1,14 +1,7 @@
 #!/usr/bin/env node
-
-// const fs = require('fs');
-const path = require('path');
 const { program } = require('commander');
-// const { pipeline } = require('stream');
-// const Solution = require('./src/transform-stream');
-// const { es } = require('event-stream');
-
+const { load } = require('./src/loadMaze');
 const { startMaze, outputMaze } = require('./src/getStartEnd');
-const { MAZE } = require('./src/input');
 const { prepareMaze, checkPath } = require('./src/checkPath');
 
 program
@@ -17,41 +10,24 @@ program
   .option('-o, --output <string>', 'output file (if none then stdout is used)')
   .parse(process.argv);
 
-const init = async ({ input, output }) => {
+(async function () {
   try {
-    const inputPath = input ? path.join('./', input) : null;
-    const outputPath = output ? path.join('./', output) : null;
 
-    console.log(inputPath, outputPath);
-
-    // const myReadable = input
-    //   ? fs.createReadStream(inputPath)
-    //   : process.stdin;
-    
-    // const myWriteble = output 
-    //   ? fs.createWriteStream(outputPath, { flags: 'a' })
-    //   : process.stdout;
-    
-    // const transformer = new Solution();
-
-    // pipeline(myReadable, transformer, myWriteble, (err) => {
-    //   if (err) {
-    //     console.error(err.message);
-    //     process.exit(1);
-    //   }
-    // });
+    const { input } = program.opts();
+    const MAZE = await load(input);
 
     const start = startMaze(MAZE);
     const end = outputMaze(MAZE);
 
     end.step = 0;
-    prepareMaze(end);
-    checkPath(start);
+    prepareMaze(MAZE, end);
+    checkPath(MAZE, start);
 
-  } catch (err) {
-    console.error(err.message);
-    process.exit(1);
+  } catch (e) {
+    console.error(e);
   }
-};
+})()
 
-init(program.opts());
+// const myWriteble = output 
+//   ? fs.createWriteStream(outputPath, { flags: 'a' })
+//   : process.stdout;

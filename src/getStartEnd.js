@@ -1,4 +1,4 @@
-const startValue = 0;
+const startValue = '0';
 const endValue = '+';
 
 const startMaze = (MAZE) => {
@@ -30,7 +30,6 @@ const outputMaze = (MAZE) => {
       outputMaze.x = MAZE[0].length-1;
     }
   }
-  console.log('end ->', outputMaze);
   return outputMaze;
 }
 

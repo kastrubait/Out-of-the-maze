@@ -35,7 +35,15 @@ Example of answer:
    **npm i**,  **npm link**
 >4. Start:
     **maze-cli**
+>5. Options:
+    Each option can have a short flag (single character) and a long name. Options on the command line are not positional, and can be specified before or after other command arguments. You can view options using the command  **maze-cli  --help**
+
+       **-i, --input <string>**, input sets the path to the file, by default "input.txt"  
+       **-o, --output <string>**, output sets the path to the file, by default "output.txt"  
+       **-h, --help**, display help for command
+
+*The file contains a maze template. Each element forming a maze is separated from the other by one space. The data is read line by line. The input data is not checked for correctness. Be careful!*
 > 
-   - not implemented read / write to file or stdin/stdout
+   - not implemented write to file
    - the option of having multiple outputs is not considered
    - the option of working with large amounts of input data has not been considered
