@@ -7,7 +7,6 @@ async function load(input) {
   return new Promise((resolve, reject) => {
 
     const inputPath = input ? path.join('./', input) : null;
-    // const outputPath = output ? path.join('./', output) : null;
       
     const myReadable = input
       ? fs.createReadStream(inputPath)

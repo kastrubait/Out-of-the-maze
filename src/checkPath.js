@@ -21,7 +21,6 @@ const checkPath = (MAZE, start) => {
   const dx = current.x - finish.x;
   const dy = current.y - finish.y;
   solution.push(getRoute({ dy, dx }));
-  console.log(solution);
   return solution;
 }
 
@@ -32,7 +31,10 @@ const prepareMaze = (MAZE, end) => {
   while (siblings.length > 0) {
     const current = siblings[0];
     
-    if (current.val === 0) { break } 
+    if (current.val === '0') { 
+      console.log('start');
+      break 
+    } 
 
     siblings.shift();
     MAZE[current.y][current.x] = current.step + 1;

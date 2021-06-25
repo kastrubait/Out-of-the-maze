@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 const { program } = require('commander');
+const fs = require('fs');
+const path = require('path');
 const { load } = require('./src/loadMaze');
 const { startMaze, outputMaze } = require('./src/getStartEnd');
 const { prepareMaze, checkPath } = require('./src/checkPath');
@@ -13,7 +15,7 @@ program
 (async function () {
   try {
 
-    const { input } = program.opts();
+    const { input, output } = program.opts();
     const MAZE = await load(input);
 
     const start = startMaze(MAZE);
@@ -21,13 +23,21 @@ program
 
     end.step = 0;
     prepareMaze(MAZE, end);
-    checkPath(MAZE, start);
+    const pathOutMaze = checkPath(MAZE, start);
+
+    const outputPath = output ? path.join('./', output) : null;
+
+    const myWriteble = output 
+      ? fs.createWriteStream(outputPath)
+      : process.stdout;
+
+    pathOutMaze.map(el => {
+      myWriteble.write(el);
+      myWriteble.write(' ');
+    });
+    // console.log(outMaze);
 
   } catch (e) {
     console.error(e);
   }
 })()
-
-// const myWriteble = output 
-//   ? fs.createWriteStream(outputPath, { flags: 'a' })
-//   : process.stdout;
