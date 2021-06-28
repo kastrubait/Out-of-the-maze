@@ -35,7 +35,6 @@ program
       myWriteble.write(el);
       myWriteble.write(' ');
     });
-    // console.log(outMaze);
 
   } catch (e) {
     console.error(e);

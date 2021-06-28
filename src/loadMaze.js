@@ -18,6 +18,7 @@ async function load(input) {
       terminal: false
     });
     rl.on('line',  function(chunk){
+      // console.log(chunk);
       const temp = chunk.split(' ');
       arrayData.push(temp); 
     }).on('close', () =>{
