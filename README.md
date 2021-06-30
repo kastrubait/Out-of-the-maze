@@ -38,7 +38,12 @@ Example of answer:
 >5. Options:
     Each option can have a short flag (single character) and a long name. Options on the command line are not positional, and can be specified before or after other command arguments. You can view options using the command  **maze-cli  --help**
 
-       **-a, --action <string>**, action takes the values: (MxN), require  
        **-i, --input <string>**, input sets the path to the file, by default "input.txt"  
        **-o, --output <string>**, output sets the path to the file, by default "output.txt"  
        **-h, --help**, display help for command
+       
+ #### Example  
+ > `> maze-cli -i input/3.in -o output/3.out`  
+ > `> maze-cli -i input/3.in`   
+
+*The file contains a maze template. Each element forming a maze is separated from the other by one space. The data is read line by line. The input data is not checked for correctness. Be careful when making changes!*
