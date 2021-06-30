@@ -28,7 +28,7 @@ Example of answer:
 
 #### Installation and Start
 >1. Clone the repository
-    **git clone** https://github.com/kastrubait/Out-of-the-maze.git
+    **git clone** https://github.com/kastrubait/Out-of-the-maze.git  -b maze-solution
 >2. Go to the directory:
     **cd out-of-the-maze**
 >3. Install node_modules:
